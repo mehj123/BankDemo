@@ -47,7 +47,7 @@ class TransactionServiceImplTest {
 	@Test
 	void testGetTranscationsBySourceAccountId() {
 		when(repository.findBySourceAccountId(1L)).thenReturn(Collections.singletonList(transaction));
-		List<Transaction> actualTransaction = service.getTranscationsBySourceAccountId(1L);
+		List<Transaction> actualTransaction = service.getTransactionsBySourceAccountId(1L);
 		assertNotNull(actualTransaction);
 		assertEquals(transaction, actualTransaction.get(0));
 	}

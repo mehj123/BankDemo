@@ -33,8 +33,8 @@ public class TransactionServiceImpl implements TransactionService {
 	}
 
 	@Override
-	public List<Transaction> getTranscationsBySourceAccountId(Long sourceAccountId) {
-		final String methodName = "getTranscationsBySourceAccountId()";
+	public List<Transaction> getTransactionsBySourceAccountId(Long sourceAccountId) {
+		final String methodName = "getTransactionsBySourceAccountId()";
 		logger.debug("Inside {} of {}", methodName, CLASSNAME);
 		return transactionRepository.findBySourceAccountId(sourceAccountId);
 	}

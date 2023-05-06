@@ -52,8 +52,8 @@ class BankDemoControllerTest {
 
 	@Test
 	void testGetTranscationsByAccountId() {
-		when(service.getTranscationsBySourceAccountId(1L)).thenReturn(Collections.singletonList(transaction));
-		List<Transaction> actualTransaction  = controller.getTranscationsByAccountId(1L);
+		when(service.getTransactionsBySourceAccountId(1L)).thenReturn(Collections.singletonList(transaction));
+		List<Transaction> actualTransaction  = controller.getTransactionsByAccountId(1L);
 		assertNotNull(actualTransaction);
 		assertEquals(transaction, actualTransaction.get(0));
 	}

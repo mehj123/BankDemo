@@ -12,6 +12,6 @@ import com.godel.bankingservice.entity.Transaction;
 public interface TransactionService {
 
 	List<Transaction> getAllTransactions();
-	List<Transaction> getTranscationsBySourceAccountId(Long sourceAccountId);
+	List<Transaction> getTransactionsBySourceAccountId(Long sourceAccountId);
 	Transaction saveTransaction(Transaction account);
 }

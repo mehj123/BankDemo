@@ -33,7 +33,7 @@ public class BankDemoController {
 	private static final Logger logger = LoggerFactory.getLogger(CLASSNAME);
 
 	@Autowired
-	private TransactionService transcationService;
+	private TransactionService transactionService;
 	
 
 	/**
@@ -41,14 +41,14 @@ public class BankDemoController {
 	 * 
 	 * @return List<Transaction>
 	 */
-	@GetMapping("/transcations")
+	@GetMapping("/transactions")
 	public List<Transaction> getAllTransactions() {
 		final String methodName = "getAllTransactions()";
 		logger.debug("Entering {} of {}", methodName, CLASSNAME);
 
 		List<Transaction> transactionList = new ArrayList<>();
 
-		transactionList = transcationService.getAllTransactions();
+		transactionList = transactionService.getAllTransactions();
 		logger.debug("Exiting {} of {}", methodName, CLASSNAME);
 		return transactionList;
 	}
@@ -59,15 +59,15 @@ public class BankDemoController {
 	 * @param accountId List<Transaction>
 	 * @return
 	 */
-	@GetMapping("/transcations/{sourceAccountId}")
-	public List<Transaction> getTranscationsByAccountId(
+	@GetMapping("/transactions/{sourceAccountId}")
+	public List<Transaction> getTransactionsByAccountId(
 			@PathVariable("sourceAccountId") Long accountId) {
-		final String methodName = "getTranscationsByAccountId()";
+		final String methodName = "getTransactionsByAccountId()";
 		logger.debug("Entering {} of {}", methodName, CLASSNAME);
 
 		List<Transaction> transactionList = new ArrayList<>();
 
-		transactionList = transcationService.getTranscationsBySourceAccountId(accountId);
+		transactionList = transactionService.getTransactionsBySourceAccountId(accountId);
 		logger.info("transactionList : " + transactionList);
 		
 		logger.debug("Exiting {} of {}", methodName, CLASSNAME);
@@ -80,13 +80,13 @@ public class BankDemoController {
 	 * @param sourceAccountId
 	 * @return
 	 */
-	@PostMapping("/transcations/{sourceAccountId}")
+	@PostMapping("/transactions/{sourceAccountId}")
 	public Transaction saveAccountTransaction(@RequestBody Transaction newTransaction,
 			@PathVariable("sourceAccountId") Long sourceAccountId) {
 		final String methodName = "saveAccountTransaction()";
 		logger.debug("Entering {} of {}", methodName, CLASSNAME);
 
-		Transaction account = transcationService.saveTransaction(newTransaction);
+		Transaction account = transactionService.saveTransaction(newTransaction);
 
 		logger.debug("Exiting {} of {}", methodName, CLASSNAME);
 		return account;
